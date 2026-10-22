@@ -21,7 +21,29 @@ function renderProducts(){
  $("#productGrid").innerHTML=list.length?list.map(p=>`<article class="product-card"><div class="product-art" style="--accent:${p.accent}"><span class="product-tag">${p.tag}</span><span class="product-symbol">${p.symbol}</span></div><div class="product-info"><h3>${p.name}</h3><p>${p.subtitle}</p><div class="product-bottom"><div class="price">${p.price?money(p.price):"حسب الباقة"}<small>${p.price?"السعر التجريبي":"يتأكد قبل الطلب"}</small></div><button class="add-btn" data-product="${p.id}">التفاصيل ←</button></div></div></article>`).join(""):`<div class="empty-state">ما لقينا نتائج مطابقة. جرّب كلمة ثانية أو تواصل مع الدعم.</div>`;
  $$("[data-product]").forEach(b=>b.addEventListener("click",()=>openProduct(b.dataset.product)));
 }
-function openModal(html){$("#modalContent").innerHTML=html;$("#modalBackdrop").classList.add("open");document.body.style.overflow="hidden";$("#modalClose").focus()}
+
+function openModal(html) {
+  const backdrop = $("#modalBackdrop");
+  const content = $("#modalContent");
+
+  content.innerHTML = html;
+  backdrop.classList.add("open");
+
+  document.body.style.overflow = "hidden";
+  document.body.style.overflowX = "hidden";
+
+  backdrop.scrollTop = 0;
+
+  requestAnimationFrame(() => {
+    const modal = backdrop.querySelector(".modal");
+    if (modal) {
+      modal.scrollTop = 0;
+      modal.scrollLeft = 0;
+    }
+    $("#modalClose").focus({ preventScroll: true });
+  });
+}
+
 function closeModal(){$("#modalBackdrop").classList.remove("open");document.body.style.overflow=""}
 function openProduct(id){const p=products.find(x=>x.id===id);if(!p)return;openModal(`<div class="modal-product"><div class="product-art" style="--accent:${p.accent}"><span class="product-symbol">${p.symbol}</span></div><div><span class="eyebrow">${p.category}</span><h2 id="modalTitle">${p.name}</h2><p>${p.subtitle}</p><div class="modal-price">${p.price?money(p.price):"السعر عند الربط"}</div></div></div><p class="muted">${p.description}</p><div class="admin-warning">هذه نسخة تجهيز أولية. الشحن والأسعار الحقيقية غير مفعّلة بعد، ولن يتم خصم رصيد أو تنفيذ شحن من هذه الصفحة.</div><label class="form-field"><span>معرّف اللاعب / رقم الهاتف (إن لزم)</span><input id="playerId" placeholder="أدخل البيانات المطلوبة"></label><label class="form-field"><span>ملاحظات (اختياري)</span><input id="orderNote" placeholder="الباقة أو المنطقة المطلوبة"></label><button class="btn btn-gold form-submit" id="demoOrder">تسجيل طلب تجريبي</button>`);$("#demoOrder").onclick=()=>{const idv=$("#playerId").value.trim();let orders=JSON.parse(localStorage.getItem("zeko_demo_orders")||"[]");orders.unshift({product:p.name,player:idv,note:$("#orderNote").value,status:"تجريبي — غير منفّذ",date:new Date().toLocaleString("ar")});localStorage.setItem("zeko_demo_orders",JSON.stringify(orders));closeModal();showToast("تم تسجيل طلب تجريبي على هذا الجهاز فقط")}}
 function openLogin(){openModal(`<span class="eyebrow">حسابك في ZEKO</span><h2 id="modalTitle">أهلاً فيك</h2><p class="muted">واجهة تسجيل جاهزة للتوصيل بنظام المصادقة. في هذه النسخة لا تُنشأ حسابات حقيقية بعد.</p><div class="admin-warning">لا تدخل كلمة مرور تستخدمها في حساباتك الحقيقية. تسجيل الدخول الفعلي يتفعّل بعد ربط Supabase.</div><label class="form-field"><span>البريد الإلكتروني</span><input id="demoEmail" type="email" placeholder="name@example.com"></label><label class="form-field"><span>كلمة المرور</span><input id="demoPassword" type="password" placeholder="••••••••"></label><button class="btn btn-gold form-submit" id="demoLogin">متابعة تجريبية</button><div class="modal-switch">عند الربط سنفعّل إنشاء الحساب واستعادة كلمة المرور.</div>`);$("#demoLogin").onclick=()=>{closeModal();showToast("واجهة الحساب جاهزة — يلزم ربط المصادقة لتفعيل الحسابات")}}
