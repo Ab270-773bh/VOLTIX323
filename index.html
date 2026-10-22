@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080d18">
+  <title>ZEKO CHARGE | اشحن عالمك</title>
+  <meta name="description" content="ZEKO CHARGE — متجر شحن الألعاب والتطبيقات">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="topline"><span class="live-dot"></span> <span>مركز شحنك الرقمي</span><span class="top-sep">•</span><span>خدمة العملاء جاهزة لمساعدتك</span></div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="ZEKO CHARGE الرئيسية">
+      <span class="brand-mark"><span> Z </span><i>✦</i></span>
+      <span class="brand-copy"><b>ZEKO <em>CHARGE</em></b><small>اشحن عالمك</small></span>
+    </a>
+    <nav class="desktop-nav"><a href="#games">الألعاب</a><a href="#services">الخدمات</a><a href="#how">كيف تطلب؟</a><a href="#support">الدعم</a></nav>
+    <div class="header-actions"><button class="icon-btn" id="searchFocus" aria-label="بحث">⌕</button><button class="btn btn-outline" id="loginBtn">دخول / حساب</button><button class="cart-btn" id="walletBtn">محفظتي <span id="walletBadge">0</span></button><button class="menu-btn" id="menuBtn" aria-label="القائمة">☰</button></div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="spark">✦</span> وجهتك للشحن الرقمي</div>
+        <h1>عالمك أقرب.<br><span>وشحنتك أسرع.</span></h1>
+        <p>شحن ألعابك وخدماتك الرقمية من مكان واحد، بتجربة بسيطة وواضحة ودعم معك خطوة بخطوة.</p>
+        <div class="hero-actions"><a class="btn btn-gold" href="#games">اكتشف المنتجات <span>←</span></a><button class="btn btn-glass" id="heroWallet">افتح محفظتك <span>↗</span></button></div>
+        <div class="hero-trust"><div class="trust-avatars"><span>ز</span><span>✓</span><span>★</span></div><div><b>تجربة واضحة من البداية</b><small>السعر والطلب والحالة في مكان واحد</small></div></div>
+      </div>
+      <div class="hero-art" aria-label="تصميم رسومي متحرك">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-glow"></div>
+        <div class="floating-chip chip-top">✦ <span>CHARGE UP</span></div>
+        <div class="device-card"><div class="device-top"><span class="mini-logo">Z</span><span class="device-dots">•••</span></div><div class="device-label">YOUR DIGITAL WORLD</div><div class="device-title">LEVEL UP<span>NOW</span></div><div class="device-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="device-bottom"><span>ZEKO CHARGE</span><span>✦</span></div></div>
+        <div class="floating-chip chip-left">⚡ شحن أسهل</div><div class="floating-chip chip-right"><span class="live-dot"></span> متجرك الرقمي</div>
+        <div class="star star-one">✦</div><div class="star star-two">✧</div><div class="star star-three">✦</div>
+      </div>
+    </section>
+    <section class="quick-stats"><div><span class="stat-icon">⚡</span><span><b>خطوات سهلة</b><small>من الطلب للتأكيد</small></span></div><div><span class="stat-icon">◈</span><span><b>محفظة موحّدة</b><small>تابع رصيدك وعملياتك</small></span></div><div><span class="stat-icon">☏</span><span><b>فريق دعم</b><small>نساعدك عند الحاجة</small></span></div></section>
+    <section class="section" id="games">
+      <div class="section-head"><div><div class="eyebrow">اختر وجهتك</div><h2>ماذا تريد أن تشحن؟</h2><p>تصفّح الفئات واختر المنتج المناسب لك.</p></div><div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="ابحث عن لعبة أو خدمة..." autocomplete="off"></div></div>
+      <div class="category-tabs" id="categoryTabs"><button class="tab active" data-category="الكل">الكل</button><button class="tab" data-category="ألعاب">ألعاب</button><button class="tab" data-category="اتصالات">اتصالات</button><button class="tab" data-category="بطاقات">بطاقات رقمية</button><button class="tab" data-category="تطبيقات">تطبيقات</button></div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="catalog-note"><span>✦</span><div><b>ما لقيت المنتج اللي بدك ياه؟</b><small>راسل فريق الدعم واطلب الخدمة، وسنوضح لك التوفر والسعر قبل تأكيد الطلب.</small></div><button class="text-btn" data-open-support>تواصل مع الدعم ←</button></div>
+    </section>
+    <section class="promo-section" id="services"><div class="promo-icon">✦</div><div><span class="eyebrow">ZEKO CARE</span><h2>طلبك واضح، ودعمنا قريب.</h2><p>ما في رسوم مخفية في واجهة المتجر. راجع السعر والتفاصيل قبل تأكيد أي طلب.</p></div><a class="btn btn-outline" href="#support">تعرّف على الدعم ←</a></section>
+    <section class="section how-section" id="how"><div class="section-head centered"><div class="eyebrow">بكل بساطة</div><h2>كيف تتم عملية الشحن؟</h2><p>أربع خطوات واضحة من اختيار المنتج إلى متابعة الطلب.</p></div><div class="steps"><article><span>01</span><div class="step-icon">⌕</div><h3>اختر المنتج</h3><p>حدّد اللعبة أو الخدمة والباقـة التي تناسبك.</p></article><article><span>02</span><div class="step-icon">◈</div><h3>راجع التفاصيل</h3><p>أدخل بيانات الحساب المطلوبة وتأكد من صحتها.</p></article><article><span>03</span><div class="step-icon">↗</div><h3>أرسل الطلب</h3><p>استخدم الرصيد أو اتبع تعليمات الدفع المعتمدة.</p></article><article><span>04</span><div class="step-icon">✓</div><h3>تابع الحالة</h3><p>تابع حالة طلبك، وتواصل مع الدعم عند الحاجة.</p></article></div></section>
+    <section class="support-band" id="support"><div class="support-emblem">☏</div><div class="support-copy"><span class="eyebrow">نحن هنا لمساعدتك</span><h2>احتجت مساعدة؟ فريق ZEKO معك.</h2><p>اسأل عن منتج، أو تابع طلباً، أو أرسل استفسارك لفريق الدعم.</p></div><button class="btn btn-gold" data-open-support>تواصل مع الفريق <span>←</span></button></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark"><span>Z</span><i>✦</i></span><span class="brand-copy"><b>ZEKO <em>CHARGE</em></b><small>اشحن عالمك</small></span></a><p>متجر رقمي بتجربة أوضح وأسهل.</p><div class="footer-links"><a href="#games">المنتجات</a><a href="#how">طريقة الطلب</a><a href="#support">الدعم</a><button id="adminOpen">الإدارة</button></div><small class="copyright">© 2026 ZEKO CHARGE — جميع الحقوق محفوظة</small></footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modalBackdrop">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="إغلاق">×</button><div id="modalContent"></div></section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
