@@ -102,3 +102,73 @@ textarea {
     max-width: 100%;
   }
 }
+/* إصلاح نافذة المحفظة على الهاتف */
+#modalBackdrop {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  padding: 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#modalBackdrop.open {
+  display: flex;
+}
+
+#modalBackdrop .modal {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  min-width: 0;
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 24px 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+
+#modalContent,
+#modalContent * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+#modalContent input,
+#modalContent select,
+#modalContent textarea {
+  width: 100%;
+}
+
+#modalContent .wallet-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+#modalContent .wallet-actions button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 380px) {
+  #modalBackdrop {
+    padding: 8px;
+  }
+
+  #modalBackdrop .modal {
+    max-height: calc(100dvh - 16px);
+    padding: 22px 12px;
+  }
+
+  #modalContent .wallet-actions {
+    grid-template-columns: 1fr;
+  }
+}
